@@ -1,0 +1,86 @@
+<div class="container">
+<br>
+  <h4>Consulta de tiempo por ciudad</h4>
+  <div class="row">
+    <div class="col-lg-6 alineacion card">
+      <form [formGroup]="formulario" (ngSubmit)="consultar()">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">
+            Ciudad
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            formControlName="ciudad"
+          >
+
+          <div id="emailHelp" class="form-text">
+            We'll never share your email with anyone else.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">
+            Codigo Postal
+          </label>
+
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputPassword1"
+            formControlName="codigoPostal"
+          >
+        </div>
+
+<div class="mb-3">
+          <label for="exampleInputTemperatura" class="form-label">
+            Temperatura
+          </label>
+
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputTemperatura"
+            formControlName="temperatura"
+          >
+        </div>
+
+
+
+        <div class="mb-3">
+          <label for="exampleInputCoordenadas" class="form-label">
+            Coordenadas
+          </label>
+
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputCoordenadas"
+            formControlName="coordenadas"
+          >
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">
+        Consultar
+        </button>
+
+      </form>
+    </div>
+
+    <div class="col-lg-6  col-md-6 alineacion">
+        <div class="card">
+
+      <ul>
+        <li>Ciudad:</li>
+        <li>Codigo Postal:</li>
+        <li>Temperatura:</li>
+        <li>Coordenadas:</li>
+      </ul>
+    </div>
+</div>
+  </div>
+
+</div>
