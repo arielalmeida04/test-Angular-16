@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-time',
@@ -21,15 +21,30 @@ metodo para inicializar el formulario con los campos ciudad y codigoPostal
 */
 iniciaFormulario() {
   this.formulario = this.fb.group({
-    ciudad: [],
-    codigoPostal: [],
-    temperatura: [],
-    coordenadas: []
+    ciudad: ['', [
+      Validators.required,
+      Validators.pattern(/^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+$/)
+    ]],
+
+    codigoPostal: ['', [
+      Validators.required,
+      Validators.pattern(/^[a-zA-Z0-9]+$/)
+    ]],
+
+    temperatura: ['', [
+      Validators.required,
+      Validators.pattern(/^-?\d+(\.\d+)?$/)
+    ]],
+
+    coordenadas: ['', [
+      Validators.required,
+      Validators.pattern(/^-?\d+(\.\d+)?,-?\d+(\.\d+)?$/)
+    ]]
   });
 }
 
 
 consultar() {
-console.log('Formulario enviado:', this.formulario.value);
+console.log('Formulario enviado:', this.formulario);
 }
 }

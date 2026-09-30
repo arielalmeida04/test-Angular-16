@@ -1,86 +1,122 @@
 <div class="container">
-<br>
+  <br>
+
   <h4>Consulta de tiempo por ciudad</h4>
+
   <div class="row">
     <div class="col-lg-6 alineacion card">
+
       <form [formGroup]="formulario" (ngSubmit)="consultar()">
+
+        <!-- CIUDAD -->
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">
+          <label for="inputCiudad" class="form-label">
             Ciudad
           </label>
+
           <input
             type="text"
             class="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
+            id="inputCiudad"
             formControlName="ciudad"
           >
 
-          <div id="emailHelp" class="form-text">
-            We'll never share your email with anyone else.
-          </div>
+          <p
+            class="text-danger"
+            *ngIf="formulario.get('ciudad')?.invalid && formulario.get('ciudad')?.touched"
+          >
+            Ingrese una ciudad válida. Solamente se permiten letras y espacios.
+          </p>
         </div>
 
+
+        <!-- CODIGO POSTAL -->
         <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">
-            Codigo Postal
+          <label for="inputCodigoPostal" class="form-label">
+            Código Postal
           </label>
 
           <input
             type="text"
             class="form-control"
-            id="exampleInputPassword1"
+            id="inputCodigoPostal"
             formControlName="codigoPostal"
           >
+
+          <p
+            class="text-danger"
+            *ngIf="formulario.get('codigoPostal')?.invalid && formulario.get('codigoPostal')?.touched"
+          >
+            Ingrese un código postal válido. Solamente se permiten letras y números.
+          </p>
         </div>
 
-<div class="mb-3">
-          <label for="exampleInputTemperatura" class="form-label">
+
+        <!-- TEMPERATURA -->
+        <div class="mb-3">
+          <label for="inputTemperatura" class="form-label">
             Temperatura
           </label>
 
           <input
             type="text"
             class="form-control"
-            id="exampleInputTemperatura"
+            id="inputTemperatura"
             formControlName="temperatura"
           >
+
+          <p
+            class="text-danger"
+            *ngIf="formulario.get('temperatura')?.invalid && formulario.get('temperatura')?.touched"
+          >
+            Ingrese una temperatura válida. Solamente se permiten números y decimales.
+          </p>
         </div>
 
 
-
+        <!-- COORDENADAS -->
         <div class="mb-3">
-          <label for="exampleInputCoordenadas" class="form-label">
+          <label for="inputCoordenadas" class="form-label">
             Coordenadas
           </label>
 
           <input
             type="text"
             class="form-control"
-            id="exampleInputCoordenadas"
+            id="inputCoordenadas"
             formControlName="coordenadas"
           >
+
+          <p
+            class="text-danger"
+            *ngIf="formulario.get('coordenadas')?.invalid && formulario.get('coordenadas')?.touched"
+          >
+            Ingrese las coordenadas con el formato: -31.74,-60.52
+          </p>
         </div>
 
 
+        <!-- BOTÓN -->
         <button type="submit" class="btn btn-primary">
-        Consultar
+          Consultar
         </button>
 
       </form>
     </div>
 
-    <div class="col-lg-6  col-md-6 alineacion">
-        <div class="card">
 
-      <ul>
-        <li>Ciudad:</li>
-        <li>Codigo Postal:</li>
-        <li>Temperatura:</li>
-        <li>Coordenadas:</li>
-      </ul>
+    <!-- RESULTADO -->
+    <div class="col-lg-6 col-md-6 alineacion">
+
+      <div class="card">
+        <ul>
+          <li>Ciudad:</li>
+          <li>Código Postal:</li>
+          <li>Temperatura:</li>
+          <li>Coordenadas:</li>
+        </ul>
+      </div>
+
     </div>
-</div>
   </div>
-
 </div>
