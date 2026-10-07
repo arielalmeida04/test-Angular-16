@@ -25,7 +25,6 @@ iniciaFormulario() {
   this.formulario = this.fb.group({
     ciudad: ['', [
       Validators.required,
-      Validators.pattern(/^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+$/),
       this._utilService.nanEntreRios
     ]],
 
